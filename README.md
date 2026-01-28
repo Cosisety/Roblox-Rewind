@@ -1,7 +1,5 @@
-  # Roblox Rewind - Privacy Policy
-
-  **Last updated: January 19th, 2025**
-
+  # Roblox Rewind - Privacy Policy                                                                                      
+  **Last updated: January 28th, 2025**                                                                                  
   ## Overview
 
   Roblox Rewind is a browser extension that analyzes your Roblox spending history. Your privacy is important, and this
@@ -13,7 +11,17 @@
   - Your Roblox username and user ID
   - Your Roblox transaction history (purchases, Robux spending, Premium/BC stipends)
 
-  This data is accessed directly from Roblox.com using your existing logged-in browser session.
+  This data is accessed directly from Roblox.com using your existing logged-in browser session, with a couple of API's for more detail.
+
+  ## APIs Used
+
+  ### Roblox APIs (Official)
+  - `users.roblox.com/v1/users/authenticated` - Gets your username and user ID
+  - `economy.roblox.com/v2/users/{userId}/transactions` - Fetches your transaction history
+  - `thumbnails.roblox.com/v1/users/avatar-headshot` - Gets your avatar for the share image
+
+  ### External APIs
+  - `api.frankfurter.app/latest?from=USD` - Free exchange rate API for localized comparisons (cached 24 hours)
 
   ## How Your Data Is Used
 
