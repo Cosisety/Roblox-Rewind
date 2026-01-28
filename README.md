@@ -2,8 +2,7 @@
   **Last updated: January 28th, 2025**                                                                                  
   ## Overview
 
-  Roblox Rewind is a browser extension that analyzes your Roblox spending history. Your privacy is important, and this
-  extension is designed to keep your data safe.
+  Roblox Rewind is a browser extension that analyzes your Roblox spending history. Your privacy is important.
 
   ## What Data We Access
 
