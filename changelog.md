@@ -19,7 +19,6 @@ All notable changes to Roblox Rewind will be documented in this file.
   - Added "or" separators between comparison items
   - Values now round up to at least 1 (no more "0.7 of a car")
 - **Progress Bar Stability**: Loading bar no longer jumps backward during rate limits
-  - Tracks highest achieved progress and slowly creeps forward
   - Provides smoother, more stable loading experience
 
 ### Added
@@ -37,7 +36,6 @@ All notable changes to Roblox Rewind will be documented in this file.
 - **Share Image Feature**: 4 themes (Cosmic, Roblox, Minimal, Spotify) with high-DPI rendering
 - **Toast Notification System**: Replaced alert() dialogs
 - **Internationalization (i18n)**: Support for 6 languages (en, es, ko, pt, ja, zh)
-- **Dev Test Mode**: Random data generator for testing (when dev-config.json exists)
 
 ### Changed
 - Improved color contrast for accessibility
