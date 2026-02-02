@@ -1,81 +1,41 @@
-<div align="center">
-
 # Roblox Rewind
 
-### Your Spotify Wrapped, but for Roblox spending.
+Your Spotify Wrapped, but for Roblox spending.
 
-A Chrome extension that analyzes your complete Roblox transaction history and creates a beautiful, shareable summary of your spending habits.
+Roblox Rewind analyzes your complete Roblox transaction history and creates a beautiful, shareable summary of your spending habits.
 
-<br>
-
-[![Install from Chrome Web Store](https://img.shields.io/badge/Install%20from-Chrome%20Web%20Store-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/Roblox%20Rewind/cpajgohmdhddfdieelgpeifijhanbgmn)
-
-<br>
-
-</div>
+[Install from Chrome Web Store](https://chromewebstore.google.com/detail/Roblox%20Rewind/cpajgohmdhddfdieelgpeifijhanbgmn)
 
 ---
 
-<table>
-<tr>
-<td width="50%">
+### Features
 
-**📊 Spending Analysis**
-<br>Real money spent, Robux purchased & spent, Premium months
-
-**🏆 Player Classifications**
-<br>From "Window Shopper" to "Certified Whale"
-
-**🍔 Real-World Comparisons**
-<br>See what else you could've bought
-
-**📈 Visual Charts**
-<br>Yearly trends and category breakdowns
-
-</td>
-<td width="50%">
-
-**🛒 Purchase Breakdown**
-<br>Creator purchases vs Roblox items
-
-**⭐ Membership Timeline**
-<br>Your Premium/Builders Club history
-
-**🎉 20+ Fun Facts**
-<br>Personalized spending insights
-
-**📸 Shareable Images**
-<br>4 beautiful themes to share your Rewind
-
-</td>
-</tr>
-</table>
+- **Spending Analysis** — Real money spent, Robux purchased & spent, Premium months
+- **Player Classifications** — From "Window Shopper" to "Certified Whale" based on your spending
+- **Real-World Comparisons** — See what else you could've bought with that money
+- **Visual Charts** — Yearly spending trends and category breakdowns
+- **Purchase Breakdown** — Creator purchases vs Roblox official items
+- **Membership Timeline** — Your Premium and Builders Club history visualized
+- **Fun Facts** — 20+ personalized insights about your spending habits
+- **Shareable Images** — 4 themes to share your Rewind
 
 ---
 
-<div align="center">
+### Privacy
 
-**Your data stays on your device.** All processing happens locally in your browser.
+> Your data stays on your device. All processing happens locally in your browser.
 
 [View Privacy Policy](https://github.com/Cosisety/Roblox-Rewind/blob/main/Privacy%20Policy)
 
-<br>
+---
 
-[![Support on Ko-fi](https://img.shields.io/badge/Support%20on-Ko--fi-FF5E5B?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/cosisety)
+### Support
 
-<br>
+If you enjoy Roblox Rewind, consider [supporting me on Ko-fi](https://ko-fi.com/cosisety).
 
-Found a bug? [Open an issue](https://github.com/Cosisety/Roblox-Rewind/issues)
+Found a bug? [Open an issue](https://github.com/Cosisety/Roblox-Rewind/issues).
 
 ---
 
-<sub>
-Roblox Rewind is not affiliated with, endorsed by, or connected to Roblox Corporation.<br>
-"Roblox" and the Roblox logo are trademarks of Roblox Corporation.
-</sub>
-
-<br>
-
-Made with ❤️ by [Jimmy](https://github.com/Cosisety)
-
-</div>
+> [!NOTE]
+> Roblox Rewind is not affiliated with, endorsed by, or connected to Roblox Corporation. "Roblox" and the Roblox logo are trademarks of Roblox Corporation.
