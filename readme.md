@@ -25,7 +25,13 @@ Roblox Rewind analyzes your complete Roblox transaction history and creates a be
 
 > Your data stays on your device. All processing happens locally in your browser.
 
-[View Privacy Policy](https://github.com/Cosisety/Roblox-Rewind/blob/main/Privacy%20Policy)
+[View Privacy Policy](https://github.com/Cosisety/Roblox-Rewind/blob/main/PrivacyPolicy.md)
+
+---
+
+### Changelog
+
+See what's new in [the changelog](https://github.com/Cosisety/Roblox-Rewind/blob/main/changelog.md).
 
 ---
 
