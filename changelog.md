@@ -12,13 +12,16 @@ All notable changes to Roblox Rewind will be documented in this file.
   - Accent: Roblox blue `#2bb1ff` (was purple `#667eea`)
   - Updated all UI elements: cards, buttons, modals, toasts, charts, scrollbars
   - Share image themes remain unchanged for variety
+- **New Logo**: Updated extension icons
 
 ### Fixed
+- **Code Quality**: Added radix parameter to `parseInt()` calls for safer number parsing
 - **Comparison Text Clarity**: "Your Roblox Identity" section now clearly shows alternatives
   - Changed intro to "That's enough to buy any one of these:"
   - Added "or" separators between comparison items
   - Values now round up to at least 1 (no more "0.7 of a car")
 - **Progress Bar Stability**: Loading bar no longer jumps backward during rate limits
+  - Tracks highest achieved progress and slowly creeps forward
   - Provides smoother, more stable loading experience
 
 ### Added
