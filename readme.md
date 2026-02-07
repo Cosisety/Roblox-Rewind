@@ -43,5 +43,11 @@ Found a bug? [Open an issue](https://github.com/Cosisety/Roblox-Rewind/issues).
 
 ---
 
+### License
+
+Roblox Rewind is proprietary. You may install and use the extension as distributed, but you may not copy, modify, or redistribute the source code.
+
+---
+
 > [!NOTE]
 > Roblox Rewind is not affiliated with, endorsed by, or connected to Roblox Corporation. "Roblox" and the Roblox logo are trademarks of Roblox Corporation.
