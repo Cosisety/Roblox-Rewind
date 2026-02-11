@@ -31,7 +31,6 @@ All notable changes to Roblox Rewind will be documented in this file.
 - **Completeness Banner Cleanup**: The incomplete data banner now clears after a successful retry
 - **Retry Toast Localization**: "All data is already complete" now uses i18n
 - **Telemetry Toggle Alignment**: Toggle is now centered properly in the privacy modal
-- **Avatar Preview Fallback**: Dev-only avatar thumbnails fall back to the legacy headshot endpoint if the thumbnails API fails
 
 ### Security
 - **Removed Web Accessible Resources**: Extension resources are no longer web-accessible since no external pages need them — tighter security surface
