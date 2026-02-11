@@ -1,5 +1,5 @@
 # Roblox Rewind - Privacy Policy
-**Last updated: February 7th, 2026**
+**Last updated: February 11th, 2026**
 
 ## Overview
 
@@ -57,7 +57,8 @@ These events include only:
 - Extension version
 - UI language (locale)
 
-You can opt out at any time.
+You can opt out at any time:
+**Advanced Features -> Data Privacy -> Anonymous Usage Data** (toggle off).
 
 ## What We Don't Collect
 
