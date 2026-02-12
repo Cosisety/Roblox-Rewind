@@ -23,7 +23,7 @@ Roblox Rewind analyzes your complete Roblox transaction history and creates a be
 
 ### Privacy
 
-> Your data stays on your device. All processing happens locally in your browser.
+> Roblox transaction analysis runs locally on your device. Optional anonymous telemetry and optional game-code sharing send limited data to Cloudflare Workers. See the full policy for exact fields and retention.
 
 [View Privacy Policy](https://github.com/Cosisety/Roblox-Rewind/blob/main/PrivacyPolicy.md)
 
