@@ -4,13 +4,29 @@ All notable changes to Roblox Rewind will be documented in this file.
 
 ---
 
+## [0.3.5] - 2026-02-12
+
+### Security
+- **Host Permission Least Privilege**: Replaced wildcard Roblox host permission with explicit required domains only
+- **XSS Surface Reduction**: Disabled `data-i18n-html` translation path and replaced Fun Facts dynamic card rendering with `textContent`-based DOM creation
+- **Worker Hardening**: Telemetry and game-bridge Workers now validate origin and request payloads more strictly before storing data
+- **Public Build Guardrails**: Build now fails if wildcard host permissions or forbidden dev artifacts are present in the public output
+
+### Changed
+- **Privacy Documentation Accuracy**: Updated README and privacy copy to explicitly document optional telemetry and optional game-code cloud transfer behavior
+
+### Fixed
+- **Cache Clearing Scope**: "Clear Cache" now removes only Rewind cache keys instead of wiping all extension storage
+
+---
+
 ## [0.3.4] - 2026-02-06
 
 ### Added
-- **More Real-World Comparisons**: More variety in spending comparisons — items are now randomized each visit instead of showing the same three every time
+- **More Real-World Comparisons**: More variety in spending comparisons - items are now randomized each visit instead of showing the same three every time
 - **Comparison Price Labels**: Each comparison item now shows its unit price (e.g. "at $5.50 each") for context, fully translated in all 10 languages
 - **Zero-Purchase Handling**: Accounts with no spending history now show a friendly message instead of empty sections, with different messages based on account age
-- **Anonymous Usage Data**: Optional anonymous telemetry to help improve the extension — tracks basic events like load success and fetch duration, with no personal data collected. Opt out anytime from the privacy modal
+- **Anonymous Usage Data**: Optional anonymous telemetry to help improve the extension - tracks basic events like load success and fetch duration, with no personal data collected. Opt out anytime from the privacy modal
 - **Smart Retry**: When data is incomplete due to rate limits, a "Retry incomplete" button now appears that only re-fetches the failed transaction types instead of starting over from scratch
 - **New Locale Scaffolds**: Added Italian (it), Russian (ru), Turkish (tr), and Vietnamese (vi) locale files (English fallback ready for translation)
 
@@ -33,7 +49,7 @@ All notable changes to Roblox Rewind will be documented in this file.
 - **Telemetry Toggle Alignment**: Toggle is now centered properly in the privacy modal
 
 ### Security
-- **Removed Web Accessible Resources**: Extension resources are no longer web-accessible since no external pages need them — tighter security surface
+- **Removed Web Accessible Resources**: Extension resources are no longer web-accessible since no external pages need them - tighter security surface
 
 ---
 
@@ -78,7 +94,7 @@ All notable changes to Roblox Rewind will be documented in this file.
 ## [0.3.1] - 2026-02-02
 
 ### Added
-- **Cache Duration Setting**: Users can now choose how long to keep transaction data cached (1 hour, 6 hours, 24 hours, or 1 week) via Advanced Features → Cache Duration
+- **Cache Duration Setting**: Users can now choose how long to keep transaction data cached (1 hour, 6 hours, 24 hours, or 1 week) via Advanced Features -> Cache Duration
 - **New Languages**: Added French (fr), German (de), Indonesian (id), and Hindi (hi) support
 - **Completed Translations**: All existing languages (es, ko, pt, ja, zh) now have 100% translation coverage
 
