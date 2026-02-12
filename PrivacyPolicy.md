@@ -24,6 +24,7 @@ This data is accessed directly from Roblox.com using your existing logged-in bro
 ### External APIs
 - `api.frankfurter.app/latest?from=USD` - Free exchange rate API for localized comparisons (cached 24 hours)
 - Cloudflare Worker `/events` endpoint - Receives **anonymous usage statistics** if enabled
+- Cloudflare Worker `/rewind` endpoint - Used only when you choose **Generate Game Code** for Roblox game integration
 
 ## How Your Data Is Used
 
@@ -33,16 +34,20 @@ Your data is used solely to:
 - Create shareable summary images
 
 Anonymous usage statistics (if enabled) are used only to improve reliability and performance.
+If you choose **Generate Game Code**, a limited Rewind summary is uploaded so it can be loaded inside the Roblox game by code.
 
 ## Where Your Data Is Stored
 
 **Your Roblox data stays on your device.**
 
 - Transaction data is cached locally in your browser (default 1 hour, configurable)
-- No Roblox transaction details or account identifiers are stored in the cloud
+- Anonymous telemetry events (if enabled) are stored in Cloudflare D1
+- Game code payloads are stored temporarily in Cloudflare D1 only when you generate a game code
 - The UI shows your current cache duration so you can verify the setting
 
-If anonymous usage data is enabled, event counts are stored in a Cloudflare D1 database. These events do **not** include your username, user ID, transaction data, or cookies.
+Telemetry events do **not** include your username, user ID, transaction history, or cookies.
+
+Game code payloads are short-lived and contain summary fields only (for example totals and top category/item), not your full transaction history.
 
 ## Anonymous Usage Data (Optional)
 
@@ -60,6 +65,21 @@ These events include only:
 You can opt out at any time:
 **Advanced Features -> Data Privacy -> Anonymous Usage Data** (toggle off).
 
+## Game Code Sharing (Optional)
+
+If you click **Generate Game Code**, Roblox Rewind sends a small summary payload to a Cloudflare Worker so the Roblox game can load your snapshot.
+
+This payload can include:
+- Total USD estimate
+- Total Robux spent / purchased
+- Transaction count and membership months
+- Top category and top purchase summary
+
+Protection and retention:
+- Codes are random and one-time use
+- Codes expire after 24 hours
+- Successful retrieval deletes the code payload
+
 ## What We Don't Collect
 
 - Passwords or login credentials
@@ -72,7 +92,7 @@ You can opt out at any time:
 
 **We do not sell, trade, or transfer your data to anyone.**
 
-Anonymous usage events (if enabled) are processed by Cloudflare Workers and stored in Cloudflare D1.
+Anonymous usage events (if enabled) and optional game-code payloads are processed by Cloudflare Workers and stored in Cloudflare D1.
 
 ## Data Deletion
 
@@ -82,6 +102,7 @@ To delete all cached data:
 3. Click "Clear Cache"
 
 Uninstalling the extension removes all locally stored data. If you opt out of anonymous usage data, no new usage events are sent.
+Previously generated game codes automatically expire within 24 hours and are deleted after successful use.
 
 ## Contact
 
