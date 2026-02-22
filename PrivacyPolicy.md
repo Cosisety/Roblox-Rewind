@@ -1,5 +1,5 @@
 # Roblox Rewind - Privacy Policy
-**Last updated: February 11th, 2026**
+**Last updated: February 22, 2026**
 
 ## Overview
 
@@ -7,109 +7,124 @@ Roblox Rewind is a browser extension that analyzes your Roblox spending history.
 
 ## What Data We Access
 
-When you use Roblox Rewind, the extension reads:
+When you use Roblox Rewind, the extension can access:
 - Your Roblox username and user ID
-- Your Roblox transaction history (purchases, Robux spending, Premium/BC stipends)
-- Your Roblox avatar (for share images)
+- Your Roblox transaction history (for example purchases, Robux spending, Premium/BC stipends, sales, payouts, and trades)
+- Your Roblox avatar thumbnail (for display and share image generation)
 
-This data is accessed directly from Roblox.com using your existing logged-in browser session. All analysis happens locally on your device.
+If you choose **Generate Game Code**, the extension also creates a limited summary payload from your analyzed results.
+
+This data is accessed directly from Roblox using your existing logged-in browser session. Core analysis happens locally on your device.
 
 ## APIs Used
 
 ### Roblox APIs (Official)
-- `users.roblox.com/v1/users/authenticated` - Gets your username and user ID
-- `economy.roblox.com/v2/users/{userId}/transactions` - Fetches your transaction history
-- `thumbnails.roblox.com/v1/users/avatar-headshot` - Gets your avatar for the share image
+- `users.roblox.com/v1/users/authenticated` - Gets your authenticated Roblox user
+- `economy.roblox.com/v2/users/{userId}/transactions` - Fetches transaction history
+- `thumbnails.roblox.com/v1/users/avatar-headshot` - Gets avatar thumbnails
+- `www.roblox.com/headshot-thumbnail/image` - Fallback avatar thumbnail URL
 
 ### External APIs
-- `api.frankfurter.app/latest?from=USD` - Free exchange rate API for localized comparisons (cached 24 hours)
-- Cloudflare Worker `/events` endpoint - Receives **anonymous usage statistics** if enabled
-- Cloudflare Worker `/rewind` endpoint - Used only when you choose **Generate Game Code** for Roblox game integration
+- `api.frankfurter.app/latest?from=USD` - Exchange rates for localized comparisons (cached for 24 hours)
+- Cloudflare Worker `/events` endpoint - Receives optional anonymous usage events
+- Cloudflare Worker `/rewind` endpoint - Receives optional game-code summary payloads
 
 ## How Your Data Is Used
 
-Your data is used solely to:
-- Calculate your total spending
-- Generate spending breakdowns and charts
+Roblox data is used to:
+- Calculate spending totals
+- Generate charts, breakdowns, and insights
 - Create shareable summary images
 
-Anonymous usage statistics (if enabled) are used only to improve reliability and performance.
-If you choose **Generate Game Code**, a limited Rewind summary is uploaded so it can be loaded inside the Roblox game by code.
+Optional anonymous usage events are used to improve reliability and performance.
 
-## Where Your Data Is Stored
+If you choose **Generate Game Code**, a limited summary is uploaded so it can be loaded in the Roblox game by code.
 
-**Your Roblox data stays on your device.**
+## Where Data Is Stored
 
-- Transaction data is cached locally in your browser (default 1 hour, configurable)
-- Anonymous telemetry events (if enabled) are stored in Cloudflare D1
-- Game code payloads are stored temporarily in Cloudflare D1 only when you generate a game code
-- The UI shows your current cache duration so you can verify the setting
+### Local storage on your device
+- `robloxRewindCache`: Cached Roblox transaction dataset and fetch metadata
+- `cacheDurationPreference`: Your selected cache duration
+- `rewindSettings`: Language and accessibility preferences
+- `telemetryOptOut`: Your anonymous usage-data preference
+- `localStorage` key `robloxRewindExchangeRates`: Cached exchange-rate data
 
-Telemetry events do **not** include your username, user ID, transaction history, or cookies.
+### Cloud storage (only for optional features)
+- Anonymous usage events (if enabled) are stored in Cloudflare D1 via the telemetry Worker
+- Game-code payloads (if you generate a code) are stored in Cloudflare D1 via the game-bridge Worker
 
-Game code payloads are short-lived and contain summary fields only (for example totals and top category/item), not your full transaction history.
+Telemetry events do **not** include your Roblox username, user ID, raw transaction history, cookies, or session tokens.
 
 ## Anonymous Usage Data (Optional)
 
-If enabled, the extension sends minimal, anonymous events such as:
-- Whether a data load started or completed
-- Whether authentication failed
-- Aggregate fetch timing and rate-limit counts
-- Whether a share image was saved
-- Whether a data export was performed
+If enabled, the extension may send minimal anonymous events such as:
+- Load started/completed
+- Authentication failure
+- Fetch duration and rate-limit counts
+- Share image saved
+- Data export triggered
 
-These events include only:
+These events may include:
 - Extension version
-- UI language (locale)
+- UI locale/language
+- Aggregate diagnostic fields (for example total transaction count, cache hit flag, timing, retry/rate-limit counters, and share theme)
 
 You can opt out at any time:
 **Advanced Features -> Data Privacy -> Anonymous Usage Data** (toggle off).
 
 ## Game Code Sharing (Optional)
 
-If you click **Generate Game Code**, Roblox Rewind sends a small summary payload to a Cloudflare Worker so the Roblox game can load your snapshot.
+If you click **Generate Game Code**, Roblox Rewind sends a limited summary payload to the game-bridge Worker.
 
 This payload can include:
 - Total USD estimate
-- Total Robux spent / purchased
+- Total Robux spent and purchased
 - Transaction count and membership months
 - Top category and top purchase summary
 
-Protection and retention:
-- Codes are random and one-time use
-- Codes expire after 24 hours
-- Successful retrieval deletes the code payload
+It does **not** include full transaction history.
 
-## What We Don't Collect
+Retention behavior:
+- Codes are random
+- Codes are configured to expire after about 24 hours
+- Payloads are intended to be removed after successful retrieval
+
+## What We Do Not Collect
 
 - Passwords or login credentials
-- Payment methods or credit card information
+- Payment card or banking details
 - Personal communications
-- Browsing history outside of Roblox transaction data
+- Browsing history outside extension functionality
 - Roblox cookies or session tokens
 
 ## Third-Party Sharing
 
-**We do not sell, trade, or transfer your data to anyone.**
+We do not sell user data.
 
-Anonymous usage events (if enabled) and optional game-code payloads are processed by Cloudflare Workers and stored in Cloudflare D1.
+Optional telemetry and optional game-code payloads are processed by Cloudflare Workers and stored in Cloudflare D1 only for extension functionality described above.
 
 ## Data Deletion
 
-To delete all cached data:
+To clear cached Roblox data in the extension:
 1. Open the extension
-2. Click "Advanced Features"
-3. Click "Clear Cache"
+2. Click **Advanced Features**
+3. Click **Clear Cache**
 
-Uninstalling the extension removes all locally stored data. If you opt out of anonymous usage data, no new usage events are sent.
-Previously generated game codes automatically expire within 24 hours and are deleted after successful use.
+To stop sending new optional anonymous usage events:
+1. Open the extension
+2. Click **What about my data?**
+3. Turn off **Anonymous Usage Data**
+
+This clears Rewind cache data used for analysis and exchange-rate cache data. Preference settings (for example language/accessibility and telemetry opt-out) are retained unless you uninstall the extension.
+
+Uninstalling the extension removes extension-local stored data.
 
 ## Contact
 
-If you have questions about this privacy policy, you can reach me at:
+If you have questions about this policy:
 - Ko-fi: https://ko-fi.com/cosisety
-- Email: ProfessionalCosisety
+- Email: ProfessionalCosisety@gmail.com
 
 ## Changes
 
-If this policy changes, the updated version will be posted here with a new date.
+If this policy changes, an updated version will be posted with a new "Last updated" date.
