@@ -2,7 +2,7 @@
 
 Your Spotify Wrapped, but for Roblox spending.
 
-Roblox Rewind analyzes your complete Roblox transaction history and creates a beautiful, shareable summary of your spending habits.
+Roblox Rewind analyzes your Roblox transaction history and creates a shareable summary of your spending habits.
 
 [Install from Chrome Web Store](https://chromewebstore.google.com/detail/Roblox%20Rewind/cpajgohmdhddfdieelgpeifijhanbgmn)
 
@@ -10,20 +10,20 @@ Roblox Rewind analyzes your complete Roblox transaction history and creates a be
 
 ### Features
 
-- **Spending Analysis** — Real money spent, Robux purchased & spent, Premium months
-- **Player Classifications** — From "Window Shopper" to "Certified Whale" based on your spending
-- **Real-World Comparisons** — See what else you could've bought with that money
-- **Visual Charts** — Yearly spending trends and category breakdowns
-- **Purchase Breakdown** — Creator purchases vs Roblox official items
-- **Membership Timeline** — Your Premium and Builders Club history visualized
-- **Fun Facts** — 20+ personalized insights about your spending habits
-- **Shareable Images** — 4 themes to share your Rewind
+- **Spending Analysis** - Real money spent, Robux purchased and spent, Premium months
+- **Player Classifications** - From "Window Shopper" to "Certified Whale" based on your spending
+- **Real-World Comparisons** - See what else you could have bought with that money
+- **Visual Charts** - Yearly spending trends and category breakdowns
+- **Purchase Breakdown** - Creator purchases vs Roblox official items
+- **Membership Timeline** - Your Premium and Builders Club history visualized
+- **Fun Facts** - Personalized insights about your spending behavior
+- **Shareable Images** - Multiple themes to share your Rewind
 
 ---
 
 ### Privacy
 
-> Roblox transaction analysis runs locally on your device. Optional anonymous telemetry and optional game-code sharing send limited data to Cloudflare Workers. See the full policy for exact fields and retention.
+> Roblox transaction analysis runs locally on your device. Optional anonymous telemetry and optional game-code sharing send limited data to Cloudflare Workers. You can turn anonymous usage data off at any time from **What about my data?**.
 
 [View Privacy Policy](https://github.com/Cosisety/Roblox-Rewind/blob/main/PrivacyPolicy.md)
 
@@ -31,7 +31,7 @@ Roblox Rewind analyzes your complete Roblox transaction history and creates a be
 
 ### Changelog
 
-See what's new in [the changelog](https://github.com/Cosisety/Roblox-Rewind/blob/main/changelog.md).
+See what is new in [the changelog](https://github.com/Cosisety/Roblox-Rewind/blob/main/RobloxRewindPUBLIC/CHANGELOG.md).
 
 ---
 
