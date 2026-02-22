@@ -4,19 +4,68 @@ All notable changes to Roblox Rewind will be documented in this file.
 
 ---
 
-## [0.3.5] - 2026-02-12
+## [0.3.6] - 2026-02-22
+
+### Security
+- **Cache Identity Enforcement**: Cached results are now shown only when they match the currently authenticated Roblox account ID
+- **Timestamp Validation Hardening**: Analysis paths now skip malformed or missing transaction timestamps instead of allowing invalid date math
+
+### Fixed
+- **Timezone Day Rendering**: Corrected off-by-one date display when formatting day keys (`YYYY-MM-DD`) in some timezones
+- **Dashboard Controls Cleanup**: Removed extra diagnostic controls from the published dashboard experience
+- **Release Safeguards**: Added stricter release checks to prevent unintended controls from shipping
+
+### Changed
+- **Top 10 Purchases Context Localization**: Replaced hardcoded English context with locale key wiring across all language packs
+- **Completeness Banner Visibility**: Incomplete-data banner now uses sticky behavior to stay visible while scrolling through results
+
+---
+
+## [0.3.5] - 2026-02-15
+
+### Added
+- **Settings Menu**: Added a small top-right settings menu with a language picker and accessibility options (high contrast, reduced motion, larger text). Preferences are saved locally and apply immediately
+- **More Languages**: Added additional language options and locale support for Arabic (Modern Standard + Egypt), Bengali, Marathi, Nigerian Pidgin, Tamil, Telugu, Urdu, and Cantonese (Yue)
+- **Category Spending Drilldown**: "Spending by Category" is now an interactive donut chart with a clickable legend and an in-panel breakdown of top purchases per category
+- **Yearly Spending Drilldown**: "Yearly Spending" now includes a per-year breakdown panel with top purchases, and you can click bars (or use the year selector) to switch years
 
 ### Security
 - **Host Permission Least Privilege**: Replaced wildcard Roblox host permission with explicit required domains only
 - **XSS Surface Reduction**: Disabled `data-i18n-html` translation path and replaced Fun Facts dynamic card rendering with `textContent`-based DOM creation
 - **Worker Hardening**: Telemetry and game-bridge Workers now validate origin and request payloads more strictly before storing data
-- **Public Build Guardrails**: Build now fails if wildcard host permissions or forbidden dev artifacts are present in the public output
+- **Release Guardrails**: Additional release checks now block overly broad permissions or unintended artifacts
+- **i18n Release Audit**: Release checks now block incomplete or low-quality language packs from shipping
 
 ### Changed
 - **Privacy Documentation Accuracy**: Updated README and privacy copy to explicitly document optional telemetry and optional game-code cloud transfer behavior
+- **Login Safety Copy**: Clarified in the Data Privacy modal that Roblox Rewind never asks for your password and never embeds a Roblox login page
+- **Drilldown List Length**: Yearly and category drilldowns now show a maximum of 7 items for readability
+- **Robux From Money Clarity**: Added a small breakdown line showing Robux purchases vs Premium/BC subscription stipends for better context and layout consistency
+- **Sharper Chart Labels**: Chart text is now snapped to device pixels for crisper rendering on high-DPI and scaled displays
+- **Membership History Redesign**: Membership History is now a year-by-year month grid with a details panel, making Premium vs Builders Club periods easier to read
 
 ### Fixed
 - **Cache Clearing Scope**: "Clear Cache" now removes only Rewind cache keys instead of wiping all extension storage
+- **Cache Identity Verification**: Cached results are now only auto-loaded and reused when you're logged into the same Roblox account they were fetched from
+- **Analysis Memoization**: Fixed `analyzeSpending()` caching so results aren't recomputed repeatedly when opening share/export features
+- **Sort Toggle Performance**: Fixed repeated event handler binding on sort buttons that could cause duplicate re-renders over time
+- **Export Memory Leak**: Export now revokes temporary download URLs after use
+- **Startup Cache Race**: Prevented cached auto-display from clobbering an in-progress refresh
+- **Fun Facts Date Hardening**: Guarded against malformed or missing transaction timestamps to prevent crashes and incorrect break/spree calculations
+- **Day-Key Date Formatting**: Fixed off-by-one day display when formatting `YYYY-MM-DD` day keys in some timezones
+- **Charts Grid Layout**: Yearly + Category sections now balance height cleanly without leaving awkward dead space
+- **Comparison Unit Price Rendering**: Fixed language override placeholder formatting that could strip `$`-prefixed values (e.g. unit price/min wage sublabels)
+- **Translation Coverage**: Real-world comparisons, breakdown labels, drilldowns, empty states, and share/copy feedback now translate correctly when switching languages
+- **Modal Translation Coverage**: "How does this work?" and "What about my data?" modal body text is now fully localized when switching languages
+- **Nigerian Pidgin Coverage**: Completed translation pass so the Nigerian Pidgin language pack is no longer mostly English
+- **Locale Encoding Repair**: Fixed corrupted translation characters that could appear as `?` in some languages
+- **Locale-Aware Formatting**: Dates and numbers now format using the selected language/locale
+- **Incomplete Data Banner Visibility**: The incomplete data banner now stays visible while scrolling so it's harder to miss while viewing insights
+- **Accessibility - Larger Text**: Larger text mode now visibly scales the dashboard UI
+- **Refresh Button Localization**: Refresh/Retry loading state no longer overrides translations and uses a subtle spinner indicator
+- **Zero-Spend Identity Localization**: Account-age zero-spend messages now translate and pluralize correctly across languages
+- **Membership Detection**: Improved stipend detection and ensured Premium tiers are only inferred after the Premium launch date to avoid incorrect Premium/BC classification
+- **Fun Facts Clarity**: Clarified ambiguous Fun Facts (Top 10 Purchases, Longest Spending Spree, Longest Break, Peak Hour, Top Weekday, Shopping Days), fixed creator counting for "Unique Creators", and made "Biggest Purchase" + "First Item Purchase" more self-explanatory
 
 ---
 
