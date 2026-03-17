@@ -23,7 +23,7 @@ Roblox Rewind analyzes your Roblox transaction history and creates a shareable s
 
 ### Privacy
 
-> Roblox transaction analysis runs locally on your device. Optional anonymous telemetry and optional game-code sharing send limited data to Cloudflare Workers. You can turn anonymous usage data off at any time from **What about my data?**.
+> Roblox transaction analysis runs locally on your device. Optional anonymous telemetry and optional game-code sharing send limited data to Cloudflare Workers. The connected Roblox game used by **Generate Game Code** is currently in beta. Roblox Rewind does not show a login form or collect credentials; sign in directly on Roblox's official site. You can turn anonymous usage data off at any time from **Advanced Features -> What about my data?**.
 
 [View Privacy Policy](https://github.com/Cosisety/Roblox-Rewind/blob/main/PrivacyPolicy.md)
 
@@ -51,3 +51,6 @@ Roblox Rewind is proprietary. You may install and use the extension as distribut
 
 > [!NOTE]
 > Roblox Rewind is not affiliated with, endorsed by, or connected to Roblox Corporation. "Roblox" and the Roblox logo are trademarks of Roblox Corporation.
+
+> [!NOTE]
+> **Game availability:** The connected Roblox game used for **Generate Game Code** is currently in beta and has not had a full public release yet.
