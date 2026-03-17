@@ -1,5 +1,5 @@
 # Roblox Rewind - Privacy Policy
-**Last updated: February 22, 2026**
+**Last updated: March 15, 2026**
 
 ## Overview
 
@@ -45,13 +45,14 @@ If you choose **Generate Game Code**, a limited summary is uploaded so it can be
 ### Local storage on your device
 - `robloxRewindCache`: Cached Roblox transaction dataset and fetch metadata
 - `cacheDurationPreference`: Your selected cache duration
-- `rewindSettings`: Language and accessibility preferences
+- `rewindSettings`: Language, accessibility, performance, compare-mode, and digest-view preferences
 - `telemetryOptOut`: Your anonymous usage-data preference
 - `localStorage` key `robloxRewindExchangeRates`: Cached exchange-rate data
 
 ### Cloud storage (only for optional features)
 - Anonymous usage events (if enabled) are stored in Cloudflare D1 via the telemetry Worker
 - Game-code payloads (if you generate a code) are stored in Cloudflare D1 via the game-bridge Worker
+- During security or reliability incidents, optional cloud endpoints may be temporarily disabled (for example, game-code generation) until service health is restored
 
 Telemetry events do **not** include your Roblox username, user ID, raw transaction history, cookies, or session tokens.
 
@@ -61,16 +62,22 @@ If enabled, the extension may send minimal anonymous events such as:
 - Load started/completed
 - Authentication failure
 - Fetch duration and rate-limit counts
+- Stage timing totals (for example auth/cache/fetch/retry/analysis/render durations)
+- Aggregate compare/digest interaction events (for example compare open/switch/use, digest open/use)
+- Session timing summaries (for example total session time and aggregate section-open duration)
 - Share image saved
 - Data export triggered
 
 These events may include:
 - Extension version
 - UI locale/language
-- Aggregate diagnostic fields (for example total transaction count, cache hit flag, timing, retry/rate-limit counters, and share theme)
+- Aggregate diagnostic fields (for example total transaction count, cache hit flag, timing/retry counters, render profile, device class bucket, selected performance mode, selected share layout/theme, compare interaction count, and digest-open duration)
+
+Retention:
+- Anonymous usage events are retained in telemetry storage until deleted during operational maintenance/purges
 
 You can opt out at any time:
-**Advanced Features -> Data Privacy -> Anonymous Usage Data** (toggle off).
+**Advanced Features -> What about my data? -> Anonymous Usage Data** (toggle off).
 
 ## Game Code Sharing (Optional)
 
@@ -112,8 +119,9 @@ To clear cached Roblox data in the extension:
 
 To stop sending new optional anonymous usage events:
 1. Open the extension
-2. Click **What about my data?**
-3. Turn off **Anonymous Usage Data**
+2. Click **Advanced Features**
+3. Click **What about my data?**
+4. Turn off **Anonymous Usage Data**
 
 This clears Rewind cache data used for analysis and exchange-rate cache data. Preference settings (for example language/accessibility and telemetry opt-out) are retained unless you uninstall the extension.
 
