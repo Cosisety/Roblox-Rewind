@@ -4,20 +4,119 @@ All notable changes to Roblox Rewind will be documented in this file.
 
 ---
 
-## [0.3.6] - 2026-02-22
+## [0.4.0] - 2026-03-15
+
+### Added
+- **Compare Mode**: Added a new compare section that supports **Year vs Year** and **Category vs Category** views with side-by-side metric deltas
+- **Monthly Digest**: Added a rolling **Last 30 Days vs Prior 30 Days** digest with full drilldowns for top categories, items, and games
+- **Compare Share Layout**: Added a new **Compare** share layout and support across all existing share themes
+
+### Changed
+- **Engagement Telemetry (Aggregate Only)**: Added aggregate interaction events for compare/digest usage and session timing signals without sending personal or transaction-content data
+- **Settings Persistence**: Compare selections and digest expand/collapse state are now saved locally and restored across sessions
+- **Trust Messaging in Insights**: Compare and digest views now show a clear "based on available data" label when source completeness is partial
+- **Compare Access Flow**: Compare Mode is now opened from a dedicated top action button (next to Share Image and Advanced Features) instead of being embedded directly in the main results stream
+- **Digest Placement**: Monthly Digest now lives inside the Compare experience for a cleaner main dashboard layout
+
+### Quality
+- **Cross-Platform Parity**: Updated Chrome and Firefox builds with matching compare/digest behavior and release-gate validation
+- **Compare Share Output**: Improved compare share rendering so metric text scales and fits more cleanly, while keeping consistent preview sizing with other share layouts
+- **Compare Year Selection in Share**: Specific-year selection now properly drives compare-share period pairing (selected year versus prior available year)
+
+### Fixed
+- **Membership History Refresh Accuracy**: Corrected membership-history rebuild caching so timeline details refresh when the underlying month data changes
+- **Year Share Accuracy**: Corrected year-specific share stats to use the selected year's true top purchase and real-money semantics (cash spent, not value-spent)
+- **Cache Safety + Recovery**: Added stricter cache-shape validation, normalized cache-duration values, and clearer cache-withheld/auth messaging when cached results cannot be safely shown
+- **Refresh Race Guard**: Prevented stale auto-load renders from racing against manual refresh/retry flows
+- **Download Reliability**: Added explicit download API failure handling for export/share actions instead of silent failures
+- **Dashboard Reuse on Open**: Popup now focuses an existing dashboard tab when available instead of always opening duplicates
+
+### Security
+- **Firefox Abuse Controls (Cloud Features)**: Added additional request hardening for Firefox-origin telemetry/game-code traffic with lightweight rate limiting and stricter request-shape checks
+
+### Performance
+- **Faster First Paint of Results**: Avatar fetching for share output is now preloaded in the background so core dashboard stats/charts render sooner
+- **Share Modal Efficiency**: Year selector options now avoid unnecessary rebuilds when source years are unchanged
+- **Top Games Share Rendering**: Game icon image decoding for Top 5 share layout now starts in parallel to reduce wait time before cards draw
+
+---
+
+## [0.3.9] - 2026-03-01
+
+### Added
+- **Performance Mode Setting**: Added a new settings control with `Auto`, `On (Lower Effects)`, and `Off (Best Visuals)` modes to tune rendering cost on slower devices
+- **Stage-Based Load Status**: Loading now reports clear stages (`login`, `cache`, `fetch`, `retry`, `analysis`, `render`) with ETA bands for better long-load clarity
+
+### Changed
+- **Reliability-First Timing Telemetry**: Added aggregate runtime timing segments for auth, cache, fetch, retry, analysis, and render to improve performance tuning without collecting personal data
+- **Adaptive Low-End Rendering**: Auto mode now applies a conservative low-end profile on constrained devices while preserving all data/features
+- **Canvas DPR Control**: Chart and share-image rendering now caps device pixel ratio in low-end mode to reduce GPU/memory pressure
+- **Privacy Disclosure Refresh**: Updated privacy policy wording to reflect performance-mode settings storage and aggregate timing/profile diagnostics in optional telemetry
+
+### Performance
+- **Top Games Re-Render Guard**: Top Games list now skips rebuilds when metric, locale, and source rows are unchanged
+- **Reduced Visual Cost Profile**: Low-end profile trims non-essential transitions and heavy shadows to improve interaction smoothness on weaker hardware
+
+---
+
+## [0.3.8] - 2026-03-01
+
+### Security
+- **Release Validation Guardrails**: Added stronger release validation guardrails to prevent incomplete public bundles and stripped-code regressions
+
+### Changed
+- **Cross-Platform Release Checks**: Release validation now enforces Chrome and Firefox parity checks before packaging
+- **Build Hardening**: Public package structure, endpoint/platform separation, and manifest safety rules are now validated as blocking release gates
+
+---
+
+## [0.3.7] - 2026-02-28
+
+### Added
+- **Data Trust Panel**: Added a dedicated trust panel below summary metrics with clear run status, plain-language explanations, and optional details
+- **Top Games Up Front**: Moved Top Games to a higher-priority position near the top of results for faster insight
+
+### Changed
+- **Top Games Interaction**: Top Games now supports stable metric ranking by either Robux or purchase count, with deterministic tie-break ordering
+- **Top Games Navigation**: Clicking a Top Games row now opens that experience on Roblox in a new tab
+- **Retry Clarity**: Retry messaging now uses clearer non-technical recovery language in both panel summaries and toasts
+- **Section Consistency**: Tightened section spacing and heading rhythm for Trust, Top Games, charts, and related analytics blocks
+- **Verified Data Placement**: Moved the verification panel to the bottom of results and retitled it as **Verified Data** with a compact checkmark style
+
+### Fixed
+- **Trust State Persistence**: Trust panel expand/collapse preference now persists across sessions
+- **Coverage Localization**: Top Games coverage, metric values, and row metadata now use i18n-backed strings for runtime language switching
+- **Keyboard Accessibility**: Top Games clickable rows are keyboard-accessible with improved screen-reader labels
+
+---
+
+## [0.3.6] - 2026-02-27
 
 ### Security
 - **Cache Identity Enforcement**: Cached results are now shown only when they match the currently authenticated Roblox account ID
 - **Timestamp Validation Hardening**: Analysis paths now skip malformed or missing transaction timestamps instead of allowing invalid date math
+- **Background Kill Switches**: Added worker-side write controls so optional telemetry and optional game-code writes can be disabled quickly during incidents without shipping a new extension package
+- **Worker Response Hardening**: Standardized worker error responses to stable codes and tightened payload-size handling for background endpoints
+- **Strict Platform Segregation**: Confirmed and enforced separate Chrome/Firefox worker endpoints and D1 stores for optional cloud features
+- **Operational Fail-Safe Behavior**: Optional telemetry and game-code services now follow deterministic outage behavior to avoid leaking internals in error responses
 
 ### Fixed
 - **Timezone Day Rendering**: Corrected off-by-one date display when formatting day keys (`YYYY-MM-DD`) in some timezones
-- **Dashboard Controls Cleanup**: Removed extra diagnostic controls from the published dashboard experience
-- **Release Safeguards**: Added stricter release checks to prevent unintended controls from shipping
+- **Dashboard Polish**: Improved results-page control consistency and reduced UI clutter
+- **Platform Backend Isolation**: Firefox now points to Firefox-specific worker endpoints for telemetry and game-code operations (separate from Chrome)
+- **Game Code Outage Messaging**: Game-code generation now shows a clear temporary-unavailability message when the bridge service is intentionally disabled
+- **Totals Regression Guardrails**: Incomplete refreshes now preserve stable complete-type data instead of silently replacing it with smaller partial subsets
+- **First-Run Reliability**: Added bounded recovery for abnormal pagination stops to reduce cases where users need to manually retry
+- **Retry Targeting Accuracy**: Incomplete-data retry now consistently focuses on unresolved fetch segments and reports recovery outcomes more clearly
 
 ### Changed
 - **Top 10 Purchases Context Localization**: Replaced hardcoded English context with locale key wiring across all language packs
 - **Completeness Banner Visibility**: Incomplete-data banner now uses sticky behavior to stay visible while scrolling through results
+- **Login Safety Wording**: Updated security copy to state that Roblox Rewind does not display an in-extension login screen and does not collect credentials; users sign in on Roblox's official website
+- **Localization Copy Consistency**: Aligned login/security wording between UI fallback text and i18n source keys to keep translated and fallback copy in sync
+- **Privacy Policy Update**: Updated privacy documentation to reflect background safety controls and operational handling for optional cloud features
+- **Fetch Reliability Statusing**: Added lightweight run-status reporting and clearer retry outcome summaries for incomplete-data recovery
+- **Aggregate Reliability Telemetry**: Added aggregate-only fetch reliability events (completion state, stop-reason counts, retry outcomes) without sending personal or transaction content
 
 ---
 
@@ -33,12 +132,10 @@ All notable changes to Roblox Rewind will be documented in this file.
 - **Host Permission Least Privilege**: Replaced wildcard Roblox host permission with explicit required domains only
 - **XSS Surface Reduction**: Disabled `data-i18n-html` translation path and replaced Fun Facts dynamic card rendering with `textContent`-based DOM creation
 - **Worker Hardening**: Telemetry and game-bridge Workers now validate origin and request payloads more strictly before storing data
-- **Release Guardrails**: Additional release checks now block overly broad permissions or unintended artifacts
-- **i18n Release Audit**: Release checks now block incomplete or low-quality language packs from shipping
 
 ### Changed
 - **Privacy Documentation Accuracy**: Updated README and privacy copy to explicitly document optional telemetry and optional game-code cloud transfer behavior
-- **Login Safety Copy**: Clarified in the Data Privacy modal that Roblox Rewind never asks for your password and never embeds a Roblox login page
+- **Login Safety Copy**: Clarified in the Data Privacy modal that Roblox Rewind does not show an in-extension login form and never collects credentials
 - **Drilldown List Length**: Yearly and category drilldowns now show a maximum of 7 items for readability
 - **Robux From Money Clarity**: Added a small breakdown line showing Robux purchases vs Premium/BC subscription stipends for better context and layout consistency
 - **Sharper Chart Labels**: Chart text is now snapped to device pixels for crisper rendering on high-DPI and scaled displays
