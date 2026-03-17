@@ -1,5 +1,5 @@
 # Roblox Rewind - Privacy Policy
-**Last updated: March 15, 2026**
+**Last updated: March 17, 2026**
 
 ## Overview
 
@@ -38,7 +38,7 @@ Roblox data is used to:
 
 Optional anonymous usage events are used to improve reliability and performance.
 
-If you choose **Generate Game Code**, a limited summary is uploaded so it can be loaded in the Roblox game by code.
+If you choose **Generate Game Code**, a limited summary is uploaded so it can be loaded in the connected Roblox game by code (**currently in beta**).
 
 ## Where Data Is Stored
 
@@ -81,7 +81,7 @@ You can opt out at any time:
 
 ## Game Code Sharing (Optional)
 
-If you click **Generate Game Code**, Roblox Rewind sends a limited summary payload to the game-bridge Worker.
+If you click **Generate Game Code**, Roblox Rewind sends a limited summary payload to the game-bridge Worker so it can be loaded by the connected Roblox game (**currently in beta**).
 
 This payload can include:
 - Total USD estimate
@@ -126,6 +126,10 @@ To stop sending new optional anonymous usage events:
 This clears Rewind cache data used for analysis and exchange-rate cache data. Preference settings (for example language/accessibility and telemetry opt-out) are retained unless you uninstall the extension.
 
 Uninstalling the extension removes extension-local stored data.
+
+## Footnote on Game Availability
+
+The connected Roblox game used with **Generate Game Code** is currently in beta and has not had a full public release yet. Availability, access, and behavior may change while beta testing continues.
 
 ## Contact
 
