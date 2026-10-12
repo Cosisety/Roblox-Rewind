@@ -1,5 +1,15 @@
 # Roblox Rewind - Privacy Policy
-**Last updated: March 17, 2026**
+**Last updated: October 12, 2026**
+
+## The Short Version
+
+- Roblox Rewind **never asks for your password**. You log in on Roblox's own website.
+- Your purchase history is read from Roblox and analyzed **on your computer**. The full history is never uploaded.
+- Anonymous usage info (like "loading finished") is sent to help fix bugs. It never includes your username, user ID, or what you bought. You can turn it off in **Advanced Features -> What about my data?**
+- If you press **Generate Game Code**, a short summary (like your totals and top purchase) is uploaded so the Roblox game can load it. Codes expire after about 24 hours.
+- We do not sell your data.
+
+The full details are below.
 
 ## Overview
 
@@ -117,13 +127,13 @@ To clear cached Roblox data in the extension:
 2. Click **Advanced Features**
 3. Click **Clear Cache**
 
+This clears Rewind cache data used for analysis and exchange-rate cache data. Preference settings (for example language/accessibility and telemetry opt-out) are retained unless you uninstall the extension.
+
 To stop sending new optional anonymous usage events:
 1. Open the extension
 2. Click **Advanced Features**
 3. Click **What about my data?**
 4. Turn off **Anonymous Usage Data**
-
-This clears Rewind cache data used for analysis and exchange-rate cache data. Preference settings (for example language/accessibility and telemetry opt-out) are retained unless you uninstall the extension.
 
 Uninstalling the extension removes extension-local stored data.
 
